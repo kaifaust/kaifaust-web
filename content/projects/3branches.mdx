@@ -1,0 +1,76 @@
+---
+title: "3branches.org"
+description: "An AI assistant built to help you understand government"
+date: "2024-01-15"
+tags: ["React", "Next.js", "TypeScript", "AI", "RAG"]
+featured: true
+url: "https://3branches.org"
+github: ""
+logo: "/3branches-logo.svg"
+features:
+  - icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>'
+    title: "Research with confidence"
+    description: "Get trustworthy information backed by real government documents. Every answer includes citations you can verify yourself."
+    image: "/3branches-citation.png"
+    imageDark: "/3branches-citation-dark.png"
+  - icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>'
+    title: "Bring your knowledge"
+    description: "Upload documents to enhance your conversations. Add PDFs, Word docs, and text files to provide better context."
+    image: "/3branches-bring-your-knowledge.png"
+    imageDark: "/3branches-bring-your-knowledge-dark.png"
+  - icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z"/></svg>'
+    title: "Share with your team"
+    description: "Create shareable links of your best chats for easy knowledge transfer and collaboration."
+    image: "/3branches-sharing.png"
+    imageDark: "/3branches-sharing-dark.png"
+---
+
+# 3Branches
+
+## The Problem
+
+Law and government are complicated. There's an information accessability divide between insiders/professionals and everyone else.
+
+## Our Solution
+
+3Branches is an AI research agent that mirrors how humans investigate government documents: planning, browsing many sources, adjusting based on findings, cross-referencing sources, and fact-checking claims.
+
+## How It Works
+
+### Multi-Agent Architecture
+3Branches conducts genuine research. One orchestrating agent interprets your question, plans the approach, coordinates specialized tools, and synthesizes results. Smaller agents summarize text chunks from primary sources in parallel—far more accurate than recalling facts from model weights.
+
+### The Tool Ecosystem
+- **Web search** for real-time context
+- **RAG search** for deep primary source analysis (bills, executive orders, laws)
+- **Citation lookup** for exact quotes
+- **Pre-processed summaries** for instant bill and executive document overviews
+- **AI fact-checkers** that validate every citation before responding
+
+### Solving Completeness
+Normal RAG workflows return limited results. We run parallel searches—multiple query variations executed simultaneously using both keyword search (BM25) and contextual embeddings. Results are fused, re-ranked, summarized, and fed back to the orchestrating agent.
+
+### Critical Intelligence
+Default AI accepts source material at face value. We engineered a critical lens: 3Branches distinguishes fact from opinion, questions claims, and credits predictions to their source. It also prioritizes exact quotes from primary sources, making answers both comprehensive and verifiable.
+
+### Context-Aware Behavior
+The system prompt handles edge cases that would otherwise confuse the AI. When Trump was inaugurated, Claude's training data still assumed Biden was president. We provide current context upfront. When someone mentions "the big beautiful bill," the AI knows they mean HR 1, not just any bill.
+
+Claude also plans its research and estimates timing: "This will take about a minute—I'm searching web sources and primary documents."
+
+### Jurisdictional Modes
+Federal, California State, San Francisco City, Los Angeles City. Each mode has custom prompts with jurisdiction-specific data availability and edge cases. If you're in Federal Mode asking about municipal ordinances, the AI knows what it has access to and communicates limitations clearly.
+
+## Design Philosophy
+
+We wanted precision with personality. 3Branches is concise, properly cited, quote-enhanced, critical, helpful, and source-transparent. It has Claude's warmth but research-grade rigor.
+
+Every technical choice serves clarity—custom citation formats for our markdown parser, inline source links for verification, bracket references to primary documents.
+
+## What's Next
+
+Right now, prompt engineering compensates for model limitations. As AI capabilities improve, much of this scaffolding becomes unnecessary.
+
+But the core architecture—the orchestrating agent coordinating specialized tools, executing parallel searches, synthesizing disparate sources—that's built to last. It mirrors how humans research complex topics, and that methodology doesn't change when tools get smarter.
+
+What started as simple document retrieval became something more: AI that doesn't just find answers, it conducts research.
