@@ -27,6 +27,13 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      <header className="text-center pt-24 pb-16 md:pt-32 lg:pt-40 px-8">
+        <h1 className="text-3xl md:text-4xl font-semibold mb-4">Design Leadership that Ships</h1>
+        <p className="text-md md:text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          I blend craft and first-principles thinking to build exceptional products.
+        </p>
+      </header>
+
       {projectsWithFeatures.map((project) => (
         <FeaturedProjectCard key={project.slug} project={project} />
       ))}

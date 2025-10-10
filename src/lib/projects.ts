@@ -21,6 +21,7 @@ export interface ProjectMetadata {
   url?: string;
   github?: string;
   logo?: string;
+  logoDark?: string;
   features?: ProjectFeature[];
 }
 

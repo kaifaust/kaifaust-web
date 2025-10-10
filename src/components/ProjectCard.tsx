@@ -20,11 +20,20 @@ export default function ProjectCard({
       }`}
     >
       {project.metadata.logo ? (
-        <img
-          src={project.metadata.logo}
-          alt={project.metadata.title}
-          className="h-6 mb-2"
-        />
+        <div className="h-6 mb-2">
+          <img
+            src={project.metadata.logo}
+            alt={project.metadata.title}
+            className="h-6 dark:hidden"
+          />
+          {project.metadata.logoDark && (
+            <img
+              src={project.metadata.logoDark}
+              alt={project.metadata.title}
+              className="h-6 hidden dark:block"
+            />
+          )}
+        </div>
       ) : (
         <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">{project.metadata.title}</h3>
       )}

@@ -71,14 +71,23 @@ export default async function ProjectPage({
   return (
     <div className="min-h-screen">
       <div className="p-8 max-w-4xl mx-auto">
-        <article className="prose prose-lg max-w-none dark:prose-invert">
-          <div className="mb-8">
+        <article className="max-w-none dark:prose-invert">
+          <div className="my-8">
             {project.metadata.logo ? (
-              <img
-                src={project.metadata.logo}
-                alt={project.metadata.title}
-                className="h-10 mb-4"
-              />
+              <div className="h-10 mb-4">
+                <img
+                  src={project.metadata.logo}
+                  alt={project.metadata.title}
+                  className="h-10 dark:hidden"
+                />
+                {project.metadata.logoDark && (
+                  <img
+                    src={project.metadata.logoDark}
+                    alt={project.metadata.title}
+                    className="h-10 hidden dark:block"
+                  />
+                )}
+              </div>
             ) : (
               <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">{project.metadata.title}</h1>
             )}
@@ -95,15 +104,15 @@ export default async function ProjectPage({
                 </span>
               ))}
             </div>
-            <div className="flex gap-4 text-sm">
+            <div className="flex flex-wrap gap-4">
               {project.metadata.url && (
                 <a
                   href={project.metadata.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 dark:text-blue-400 hover:underline"
+                  className="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold rounded-full transition-colors shadow-md hover:shadow-lg no-underline"
                 >
-                  View Live Site →
+                  View Live Site ↗
                 </a>
               )}
               {project.metadata.github && (
@@ -111,9 +120,9 @@ export default async function ProjectPage({
                   href={project.metadata.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 dark:text-blue-400 hover:underline"
+                  className="inline-block px-6 py-3 bg-white/20 dark:bg-gray-800/20 backdrop-blur-md text-gray-900 dark:text-white font-semibold rounded-full border border-gray-300/50 dark:border-gray-700/50 hover:bg-white/30 dark:hover:bg-gray-800/30 transition-colors shadow-md hover:shadow-lg no-underline"
                 >
-                  View on GitHub →
+                  View on GitHub ↗
                 </a>
               )}
             </div>

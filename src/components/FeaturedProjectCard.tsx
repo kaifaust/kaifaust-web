@@ -15,11 +15,20 @@ export default function FeaturedProjectCard({ project }: FeaturedProjectCardProp
         <div className="border border-gray-200 dark:border-gray-800 rounded-lg p-8">
           <div className="text-center">
             {project.metadata.logo ? (
-              <img
-                src={project.metadata.logo}
-                alt={project.metadata.title}
-                className="h-8 mx-auto mb-4"
-              />
+              <div className="h-8 mx-auto mb-4">
+                <img
+                  src={project.metadata.logo}
+                  alt={project.metadata.title}
+                  className="h-8 mx-auto dark:hidden"
+                />
+                {project.metadata.logoDark && (
+                  <img
+                    src={project.metadata.logoDark}
+                    alt={project.metadata.title}
+                    className="h-8 mx-auto hidden dark:block"
+                  />
+                )}
+              </div>
             ) : (
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
                 {project.metadata.title}
@@ -38,12 +47,24 @@ export default function FeaturedProjectCard({ project }: FeaturedProjectCardProp
                 </span>
               ))}
             </div>
-            <Link
-              href={`/projects/${project.slug}`}
-              className="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold rounded-lg transition-colors shadow-md hover:shadow-lg"
-            >
-              View Project Details →
-            </Link>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link
+                href={`/projects/${project.slug}`}
+                className="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold rounded-full transition-colors shadow-md hover:shadow-lg"
+              >
+                Project Details →
+              </Link>
+              {project.metadata.url && (
+                <a
+                  href={project.metadata.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-6 py-3 bg-white/20 dark:bg-gray-800/20 backdrop-blur-md text-gray-900 dark:text-white font-semibold rounded-full border border-gray-300/50 dark:border-gray-700/50 hover:bg-white/30 dark:hover:bg-gray-800/30 transition-colors shadow-md hover:shadow-lg"
+                >
+                  View Live Site ↗
+                </a>
+              )}
+            </div>
           </div>
           <ProjectFeatures features={project.metadata.features!} />
         </div>
