@@ -1,10 +1,10 @@
 ---
-title: "3branches.org"
+title: "3Branches"
 description: "An AI assistant built to help you understand government"
-date: "2024-01-15"
-tags: ["React", "Next.js", "TypeScript", "AI", "RAG"]
+date: "2025-10-09"
+tags: ["AI", "RAG", "Agentic Search", "Engineering", "Design", "Legal"]
 featured: true
-url: "https://3branches.org"
+url: "https://www.3branches.org"
 github: ""
 logo: "/3branches-logo.svg"
 logoDark: "/3branches-logo-dark.svg"
@@ -28,50 +28,27 @@ features:
 
 # 3Branches
 
-## The Problem
-
-Law and government are complicated. There's an information accessability divide between insiders/professionals and everyone else.
-
-## Our Solution
-
-3Branches is an AI research agent that mirrors how humans investigate government documents: planning, browsing many sources, adjusting based on findings, cross-referencing sources, and fact-checking claims.
+Understanding law, government, and representatives requires time, money or trust in biased reporting. 3Branches mimics how human experts research government documents.
 
 ## How It Works
 
-### Multi-Agent Architecture
-3Branches conducts genuine research. One orchestrating agent interprets your question, plans the approach, coordinates specialized tools, and synthesizes results. Smaller agents summarize text chunks from primary sources in parallel—far more accurate than recalling facts from model weights.
+![3Branches Runtime Architecture](/3branches-diagram.png)
 
-### The Tool Ecosystem
-- **Web search** for real-time context
-- **RAG search** for deep primary source analysis (bills, executive orders, laws)
-- **Citation lookup** for exact quotes
-- **Pre-processed summaries** for instant bill and executive document overviews
-- **AI fact-checkers** that validate every citation before responding
+At the heart of 3Branches is an agentic search system built around a central **AI Researcher** that orchestrates multiple specialized components:
 
-### Solving Completeness
-Normal RAG workflows return limited results. We run parallel searches—multiple query variations executed simultaneously using both keyword search (BM25) and contextual embeddings. Results are fused, re-ranked, summarized, and fed back to the orchestrating agent.
+- **Fact Checker**: Verifies claims and distinguishes fact from opinion before presenting information to users
+- **Contextual RAG**: Retrieves relevant passages from our database of government documents to ground responses in real source material
+- **Citation Lookup**: Tracks and surfaces proper citations for every claim, ensuring transparency and verifiability
+- **Internet Search**: Supplements the knowledge base with current information when needed
+- **Document Summarizer**: Condenses complex legal documents into digestible insights
+- **Fast Document Summary Lookup**: Provides instant access to pre-computed summaries for common queries about bills and executive orders
 
-### Critical Intelligence
-Default AI accepts source material at face value. We engineered a critical lens: 3Branches distinguishes fact from opinion, questions claims, and credits predictions to their source. It also prioritizes exact quotes from primary sources, making answers both comprehensive and verifiable.
+The system uses an agentic approach where the researcher model decides which tools to invoke based on the user's question, creating a dynamic workflow that balances speed with thoroughness. Simple queries about bill summaries get fast responses via cached lookups, while complex research questions trigger multi-step searches across documents, fact-checking, and synthesis.
 
-### Context-Aware Behavior
-The system prompt handles edge cases that would otherwise confuse the AI. When Trump was inaugurated, Claude's training data still assumed Biden was president. We provide current context upfront. When someone mentions "the big beautiful bill," the AI knows they mean HR 1, not just any bill.
-
-Claude also plans its research and estimates timing: "This will take about a minute—I'm searching web sources and primary documents."
-
-### Jurisdictional Modes
-Federal, California State, San Francisco City, Los Angeles City. Each mode has custom prompts with jurisdiction-specific data availability and edge cases. If you're in Federal Mode asking about municipal ordinances, the AI knows what it has access to and communicates limitations clearly.
+## Addressing Edge Cases
+- Default Claude AI sometimes accepts source material at face value. We engineered a critical lens: 3Branches distinguishes fact from opinion, questions claims, and credits predictions to their source.
+- Old training data needs to be addressed explicitly in prompt. When Trump was inaugurated, Claude's training data still assumed Biden was president. When someone mentions "the big beautiful bill," the AI knows they mean HR 1, not just any bill.
 
 ## Design Philosophy
-
-We wanted precision with personality. 3Branches is concise, properly cited, quote-enhanced, critical, helpful, and source-transparent. It has Claude's warmth but research-grade rigor.
-
-Every technical choice serves clarity—custom citation formats for our markdown parser, inline source links for verification, bracket references to primary documents.
-
-## What's Next
-
-Right now, prompt engineering compensates for model limitations. As AI capabilities improve, much of this scaffolding becomes unnecessary.
-
-But the core architecture—the orchestrating agent coordinating specialized tools, executing parallel searches, synthesizing disparate sources—that's built to last. It mirrors how humans research complex topics, and that methodology doesn't change when tools get smarter.
-
-What started as simple document retrieval became something more: AI that doesn't just find answers, it conducts research.
+- We wanted precision with personality. 3Branches is concise, properly cited, quote-enhanced, critical, helpful, and source-transparent. It has Claude's warmth but research-grade rigor.
+- We wanted it to be fast when questions are simple like understadning the summary of a bill. So we added a tool for just capturing a bill or executive order summary in a couple seconds.
