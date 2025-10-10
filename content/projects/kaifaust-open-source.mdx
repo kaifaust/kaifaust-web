@@ -1,6 +1,6 @@
 ---
 title: "Clone this Website"
-description: "I built this portfolio website with my favorite tech stack."
+description: "This website is open source."
 date: "2025-10-09"
 tags: ["Next.js", "TypeScript", "Open Source", "React"]
 featured: false
@@ -8,23 +8,13 @@ url: "https://kaifaust.com"
 github: "https://github.com/kaifaust/kaifaust-web"
 ---
 
-# Building in Public
+# Kitchen Sink
 
-This portfolio website is **open source**. You can view the source code, fork it, use it as inspiration, or even deploy your own version.
+This portfolio website is **open source**.
 
-## Why Open Source?
+> The best way to learn is to build in public and share what you create.
 
-I believe in building in public and sharing knowledge. This site demonstrates:
-
-- Modern Next.js 15 App Router patterns
-- MDX-based content management
-- TypeScript best practices
-- Responsive design with Tailwind CSS
-- Interactive UI components with Radix UI
-
-> "The best way to learn is to build in public and share what you create."
-
-## Tech Stack
+## Table
 
 Here's what powers this site:
 
@@ -46,11 +36,9 @@ Here's what powers this site:
    - Frontmatter metadata
    - Dynamic routing
 
-## Code Examples
+## Syntax Highlighting
 
-### TypeScript Interface
-
-Here's the project metadata interface:
+### TypeScript
 
 ```typescript
 export interface ProjectMetadata {
@@ -66,197 +54,19 @@ export interface ProjectMetadata {
 }
 ```
 
-### React Component
 
-A simple project card component:
-
-```tsx
-export default function ProjectCard({ project }: ProjectCardProps) {
-  return (
-    <Link href={`/projects/${project.slug}`}>
-      <h3>{project.metadata.title}</h3>
-      <p>{project.metadata.description}</p>
-    </Link>
-  );
-}
-```
-
-### Bash Commands
-
-Install dependencies and run the dev server:
-
-```bash
-npm install
-npm run dev
-```
-
-## Markdown Kitchen Sink
-
-### Text Formatting
-
-You can use **bold text**, *italic text*, ***bold and italic***, ~~strikethrough~~, and `inline code`.
-
-### Lists
-
-**Unordered List:**
-- First item
-- Second item
-  - Nested item
-  - Another nested item
-- Third item
-
-**Ordered List:**
-1. Step one
-2. Step two
-   1. Sub-step
-   2. Another sub-step
-3. Step three
-
-### Task Lists
-
-- [x] Set up Next.js project
-- [x] Configure MDX
-- [x] Create project schema
-- [x] Build feature showcase
-- [ ] Add more projects
-- [ ] Add blog section
-
-### Links and References
-
-Check out [Next.js documentation](https://nextjs.org/docs) or visit [3branches.org](https://3branches.org).
-
-You can also use reference-style links: [MDX][mdx-link] is amazing!
-
-[mdx-link]: https://mdxjs.com/
-
-### Blockquotes
-
-> This is a blockquote.
-> It can span multiple lines.
->
-> And multiple paragraphs.
-
-Nested quotes:
-
-> This is a quote
->> This is a nested quote
->>> And this is double nested!
-
-### Horizontal Rules
-
-Content above the line.
+**Horizontal Rule**
 
 ---
-
-Content below the line.
-
-### Code Blocks with Syntax Highlighting
-
-#### JavaScript
-
-```javascript
-function fibonacci(n) {
-  if (n <= 1) return n;
-  return fibonacci(n - 1) + fibonacci(n - 2);
-}
-
-console.log(fibonacci(10)); // 55
-```
-
-#### Python
-
-```python
-def quick_sort(arr):
-    if len(arr) <= 1:
-        return arr
-    pivot = arr[len(arr) // 2]
-    left = [x for x in arr if x < pivot]
-    middle = [x for x in arr if x == pivot]
-    right = [x for x in arr if x > pivot]
-    return quick_sort(left) + middle + quick_sort(right)
-```
-
-#### JSON
-
-```json
-{
-  "name": "kaifaust-web",
-  "version": "1.0.0",
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack"
-  }
-}
-```
-
-## Architecture Decisions
-
-### Why Next.js 15?
-
-- **App Router**: Modern routing with layouts and server components
-- **Turbopack**: Faster development builds
-- **Server Components**: Better performance by default
-- **Image Optimization**: Automatic image optimization
-
-### Why MDX?
-
-MDX combines the simplicity of Markdown with the power of React components. Perfect for:
-
-- Writing content in Markdown
-- Embedding interactive components
-- Type-safe frontmatter
-- Easy to version control
-
-### Why Tailwind CSS?
-
-1. Utility-first approach
-2. No naming conventions needed
-3. Responsive design built-in
-4. Dark mode support
-5. Small production bundle
-
-## Project Structure
-
-```
-kaifaust-web/
-├── content/
-│   └── projects/          # MDX project files
-├── public/                # Static assets
-├── src/
-│   ├── app/              # Next.js app router
-│   ├── components/       # React components
-│   └── lib/              # Utility functions
-├── next.config.ts        # Next.js config
-└── package.json
-```
-
-## Contributing
-
-My main goal is to make this project useful for myself. Feel free to submit PRs if you feel inclined.
-
-Feel free to open an issue or submit a pull request!
-
-## License
-
-This project is open source and available under the MIT License.
-
----
-
-## Heading Levels
 
 # Heading 1
 ## Heading 2
 ### Heading 3
 #### Heading 4
 ##### Heading 5
-###### Heading 6
-
-## Emojis
-
-Built with ❤️ using Next.js ⚡ and TypeScript 💙
 
 ## Conclusion
 
-This portfolio demonstrates modern web development practices while remaining simple and maintainable. The entire source code is available on GitHub for you to explore, learn from, and use in your own projects.
+The source code is available on GitHub for you to explore, learn from, and use in your own projects.
 
 **Happy coding!** 🚀
