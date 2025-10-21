@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "generate-pdf": "node scripts/generate-resume-pdf.js",
+    "build": "npm run generate-pdf && next build --turbopack",
     "start": "next start",
     "lint": "eslint"
   },
@@ -17,6 +18,10 @@
     "@types/mdx": "^2.0.13",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.11.1",
+    "html2canvas": "^1.4.1",
+    "html2pdf.js": "^0.12.1",
+    "jspdf": "^3.0.3",
+    "lucide-react": "^0.546.0",
     "next": "15.5.4",
     "next-mdx-remote": "^5.0.0",
     "react": "19.1.0",
@@ -26,7 +31,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.1.15",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
