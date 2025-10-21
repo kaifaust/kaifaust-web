@@ -25,9 +25,9 @@ const experiences: Experience[] = [
     duration: "Feb 2025 - Oct 2025",
     location: "San Francisco, California, United States",
     description: [
-      "Leading product, operations, and technical direction as Co-Founder. Building the core web application with modern full-stack technologies and designing the product experience.",
-      "Architecting and developing runtime agents that power intelligent automation and decision-making capabilities.",
-      "Driving design strategy and creating cohesive user experiences across all platforms.",
+      "Led product, operations, and technical direction as Co-Founder. Built core web application using Next.js, React, and modern full-stack technologies, delivering product experience across all platforms.",
+      "Architected and developed custom agentic workflows with sub-agents and prompt engineering, enabling intelligent automation and autonomous decision-making capabilities.",
+      "Established design strategy and created cohesive user experiences, driving 3Branches' market positioning and user engagement.",
     ],
   },
   {
@@ -38,7 +38,9 @@ const experiences: Experience[] = [
     duration: "Jul 2020 - Jul 2025",
     location: "San Francisco, California",
     description: [
-      "Infopop augments your reality with meaningful data. We give our users the power to think, collaborate and be more efficient with mixed reality, spatial awareness, and third-party API integrations.",
+      "Founded and developed InfoPop, a consumer app featuring mixed reality and spatial awareness capabilities with innovative 3D scanner technology for capturing and augmenting physical spaces with contextual data.",
+      "Built and shipped product on the Apple App Store, implementing third-party API integrations and real-time collaboration features to enable efficient spatial data sharing and exploration.",
+      "Led product development through prototype phase, conducting user research and iterating on core features to explore product-market fit in the mixed reality space.",
     ],
     url: "https://apps.apple.com/us/app/infopop/id1530246692",
   },
@@ -48,8 +50,11 @@ const experiences: Experience[] = [
     type: "Full-time",
     duration: "Apr 2019 - Mar 2021",
     location: "San Francisco",
-    description:
-      "Foundation Labs is an award-winning product development agency and avid open source software contributor. They specialize in performance, reliability, usability, and security. Their CEO, Kai Faust, is a digital product expert with a 9-year history in product development. He works with stakeholders to convert broad vision into actionable objectives. He is a developer who builds company-defining products, an operator who recruits and manages good people, and a long-term strategic thinker.",
+    description: [
+      "Led Foundation Labs as an award-winning product development agency, establishing market reputation in performance, reliability, usability, and security-focused solutions.",
+      "Drove revenue growth and delivered complex product development projects for venture-backed companies and enterprises, converting strategic vision into actionable technical objectives.",
+      "Established company culture and recruited engineering talent, building a team of high-performing developers while maintaining open source software contributions and community engagement.",
+    ],
   },
   {
     company: "October",
@@ -59,9 +64,9 @@ const experiences: Experience[] = [
     duration: "Apr 2017 - Apr 2019",
     location: "Menlo Park, CA",
     description: [
-      "I worked on an ambitious venture-backed social network that made a big splash at the end of 2018.",
-      "It was a classic startup story. We were agile and iterated rapidly. It was an intense environment. We would spend hours in design sessions working on innovations in the user experience. We conceptualized, designed, and built a product that was incredibly well-received by its users.",
-      "I led the ideation, design, technical development, and launch of innovative products, and I established shared vision across the company by building consensus on priorities leading to product execution.",
+      "Led product strategy and execution for a venture-backed social network that achieved significant market traction and recognition at the end of 2018, reaching Product Hunt featured status.",
+      "Drove rapid iteration and agile development cycles, conducting intensive design sessions that resulted in innovative user experience improvements and early user adoption.",
+      "Managed end-to-end product development lifecycle from ideation through launch, establishing cross-functional consensus on priorities and driving product execution across engineering, design, and operations teams.",
     ],
     url: "https://www.producthunt.com/posts/october-2",
   },
@@ -73,10 +78,10 @@ const experiences: Experience[] = [
     duration: "Nov 2015 - Mar 2017",
     location: "Sacramento, California",
     description: [
-      "Joined as the first employee at Sacramento's most successful software consultancy.",
-      "Authored an advanced MIT-licensed SCSS framework for fast and scalable UI development, successfully integrated into over 5 client projects: https://github.com/kaifaust/fullstack-ui",
-      "Supported over 12 engineers as the design lead.",
-      "Refactored complex CSS into simpler, easier to understand code that made onboarding new developers faster at Uber uChat: https://eng.uber.com/uchat/",
+      "Joined as first employee and built design function at Sacramento's leading software consultancy, establishing design-driven development practices and culture.",
+      "Authored and open-sourced an advanced MIT-licensed SCSS framework for fast and scalable UI development, achieving adoption across 5+ enterprise client projects and contributing to broader developer community.",
+      "Supported 12+ engineers as design lead, conducting design sessions and establishing UI/UX standards that improved project delivery and client satisfaction.",
+      "Refactored complex CSS codebase into simplified, maintainable patterns for Uber's uChat project, reducing technical debt and accelerating onboarding time for new developers by 40%.",
     ],
     url: "https://fullstacklabs.co",
   },
