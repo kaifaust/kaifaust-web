@@ -1,22 +1,12 @@
-export interface Experience {
-  company: string;
-  logo?: string;
-  title: string;
-  type: string;
-  duration: string;
-  location?: string;
-  description: string | string[];
-  url?: string;
-}
-
-export const personalInfo = {
+// Shared resume data for both PDF generation and web display
+const personalInfo = {
   name: "Kai Faust",
   email: "kaifaust@gmail.com",
   phone: "(707) 508-6371",
   location: "San Francisco, CA",
 };
 
-export const experiences: Experience[] = [
+const experiences = [
   {
     company: "3Branches",
     logo: "/3branches-logo.svg",
@@ -86,3 +76,5 @@ export const experiences: Experience[] = [
     url: "https://fullstacklabs.co",
   },
 ];
+
+module.exports = { personalInfo, experiences };

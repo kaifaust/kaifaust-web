@@ -39,21 +39,28 @@ export default function Resume() {
               className="border-l-2 border-gray-200 dark:border-gray-800 pl-6 pb-6 last:pb-0"
             >
               {/* Company and Title */}
-              <div className="flex items-start justify-between mb-2 flex-wrap gap-2">
-                <div>
+              <div className="mb-4">
+                {/* Title and Duration - Two Column on md+ */}
+                <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2 mb-1">
                   <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
                     {exp.title}
                   </h2>
+                  <p className="text-sm text-gray-500 dark:text-gray-500 md:text-right whitespace-nowrap">
+                    {exp.duration}
+                  </p>
+                </div>
+
+                {/* Company and Location - Two Column on md+ */}
+                <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2">
                   <p className="text-gray-600 dark:text-gray-400">
                     {exp.company} · {exp.type}
                   </p>
+                  {exp.location && (
+                    <p className="text-sm text-gray-500 dark:text-gray-500 md:text-right whitespace-nowrap">
+                      {exp.location}
+                    </p>
+                  )}
                 </div>
-              </div>
-
-              {/* Duration and Location */}
-              <div className="flex flex-col gap-1 mb-4 text-sm text-gray-500 dark:text-gray-500">
-                <p>{exp.duration}</p>
-                {exp.location && <p>{exp.location}</p>}
               </div>
 
               {/* Description */}
