@@ -47,7 +47,7 @@ export default function FeaturedProjectCard({ project }: FeaturedProjectCardProp
                 </span>
               ))}
             </div>
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-wrap gap-4 justify-center mb-8">
               <Link
                 href={`/projects/${project.slug}`}
                 className="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold rounded-full transition-colors shadow-md hover:shadow-lg"
@@ -65,8 +65,17 @@ export default function FeaturedProjectCard({ project }: FeaturedProjectCardProp
                 </a>
               )}
             </div>
+            {project.metadata.image && (
+              <div className="mt-8 rounded-xl overflow-hidden shadow-lg">
+                <img
+                  src={project.metadata.image}
+                  alt={project.metadata.title}
+                  className="w-full h-auto"
+                />
+              </div>
+            )}
           </div>
-          <ProjectFeatures features={project.metadata.features!} />
+          <ProjectFeatures features={project.metadata.features || []} />
         </div>
       </div>
     </section>

@@ -1,0 +1,134 @@
+---
+title: "NoterCam"
+description: "Full-stack development of NoterCam, an intelligent security system combining firmware engineering, cloud infrastructure, and real-time video analysis."
+date: "2024-10-20"
+tags: ["Firmware", "DevOps", "Kubernetes", "Docker", "Backend", "Frontend", "Google Cloud"]
+featured: true
+image: "/portfolio-notercam-dashboard.png"
+url: "https://notercam.com"
+---
+
+# NoterCam: AI-Powered Security System
+
+## Overview
+
+NoterCam is a next-generation surveillance system that leverages artificial intelligence to provide intelligent, scalable security monitoring across campuses, facilities, and critical infrastructure. The system monitors over 300 cameras simultaneously, filters false alarms, and delivers real-time threat detection with automatic alerts to security teams.
+
+## The Challenge
+
+Traditional surveillance systems suffer from fundamental limitations:
+- **Operator Fatigue**: Security teams must manually monitor hundreds of camera feeds
+- **False Alarms**: Countless false positives waste resources and reduce response effectiveness
+- **Scalability Issues**: Traditional systems struggle to handle more than a few dozen cameras
+- **Slow Response Times**: Manually identifying threats introduces critical delays
+
+NoterCam was built to solve these problems through intelligent automation and modern cloud infrastructure.
+
+## Architecture & Technology Stack
+
+### Firmware Engineering & Edge Computing
+
+The backbone of NoterCam relies on sophisticated firmware running on edge devices that communicate with our cloud infrastructure. This firmware layer handles:
+
+- **Real-time video processing** at the camera level to reduce bandwidth requirements
+- **Local threat detection** with machine learning models optimized for edge devices
+- **Reliable communication** with cloud services even in unstable network conditions
+- **Firmware updates** delivered seamlessly without disrupting surveillance
+
+The firmware development involved optimizing machine learning inference on embedded systems while maintaining 24/7 reliability standards required for security systems.
+
+### Backend & API Architecture
+
+Built on **Google Cloud Platform**, the backend provides:
+
+- **Scalable Video Analysis Pipeline**: Processes video feeds from 300+ cameras concurrently
+- **Machine Learning Integration**: AI models that detect suspicious events and filter false alarms
+- **Real-time Event Processing**: Immediate threat detection and prioritization
+- **RESTful APIs**: Robust endpoints for dashboard communication and integrations
+- **Database Infrastructure**: Efficient storage and retrieval of event logs, camera configurations, and security protocols
+
+### DevOps & Container Orchestration
+
+**Kubernetes** on Google Cloud manages the entire deployment:
+
+- **Docker containers** package all microservices for consistency across environments
+- **Automated scaling** ensures the system handles traffic spikes during incidents
+- **Rolling updates** allow firmware and software updates without downtime
+- **Health monitoring** and automatic recovery maintain 99.9% uptime SLA
+- **Multi-region deployment** provides redundancy and low-latency access
+
+### Frontend Dashboard
+
+A responsive web interface built with modern web technologies provides:
+
+- **Real-time Dashboard**: Live feed monitoring from selected cameras
+- **Threat Prioritization**: AI-flagged incidents displayed by severity
+- **Intelligent Filtering**: Focus on real threats while filtering out noise
+- **Instant Notifications**: Alert integration with security team communication
+- **Historical Analysis**: Event logs and incident playback for review and training
+
+## How It Works
+
+### 1. 24/7 Smart Feed Monitoring
+AI continuously monitors all camera feeds, identifying potential intrusions and filtering false alarms in real-time. The system learns patterns specific to each location, understanding normal activity and detecting anomalies.
+
+### 2. Threat Detection & Flagging
+When a potential threat is detected by AI, the system:
+- Flags the relevant camera feed
+- Automatically notifies the security team
+- Prioritizes the incident based on threat level
+- Provides context and metadata for quick assessment
+
+### 3. Team Response & Action
+Security teams respond according to established protocols:
+- View relevant camera feeds and incident details
+- Access historical context and similar events
+- Execute response procedures
+- Log actions for compliance and training
+
+## Key Features
+
+### Capacity of >300 Cameras
+Ensure full coverage with no blind spots by a camera system that scales effortlessly — keeping your entire community safer through comprehensive monitoring and intelligent redundancy.
+
+### AI-Powered Video Analysis
+Improve response time to threats with AI that detects suspicious events while filtering out distractions. Our machine learning models continuously adapt to location-specific patterns and seasonal changes.
+
+### Intelligent Prioritization
+Stop wasting time on false alarms. Focus on real threats, optimize decision-making, and let AI handle the noise. Security teams spend their time on what matters most.
+
+### Automatic Alerts
+Get instant notifications about real incidents so your team can act without delay. Integration with existing communication channels ensures nothing is missed.
+
+## Technical Highlights
+
+### Cloud Infrastructure
+- **Google Cloud Compute Engine**: Scalable virtual machines for processing pipelines
+- **Cloud Storage**: Secure, redundant storage for video archives and metadata
+- **Cloud Pub/Sub**: Real-time event streaming and notification delivery
+- **Cloud SQL**: Relational database for configuration and user management
+
+### Container Orchestration
+- **Kubernetes Clusters**: Multi-zone deployments for high availability
+- **Docker Registry**: Centralized image management and versioning
+- **Helm Charts**: Standardized deployment configurations
+- **Network Policies**: Secure inter-pod communication
+
+### Firmware & Edge Processing
+- **Edge ML Models**: Optimized inference for threat detection
+- **Firmware Updates**: Over-the-air updates with rollback capabilities
+- **Device Management**: Remote configuration and monitoring
+- **Bandwidth Optimization**: Intelligent compression and selective stream forwarding
+
+## Impact
+
+NoterCam transforms security operations by:
+- **Reducing response time** from minutes to seconds
+- **Eliminating alert fatigue** through intelligent filtering
+- **Scaling effortlessly** to support growing facilities
+- **Improving threat detection** with AI-powered analysis
+- **Enabling compliance** through comprehensive logging and audit trails
+
+---
+
+This project showcases full-stack expertise across firmware engineering, cloud infrastructure, containerization, backend development, and frontend user experience—all working together to deliver a mission-critical security system that organizations can trust.

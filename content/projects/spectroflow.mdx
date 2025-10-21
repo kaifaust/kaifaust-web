@@ -1,0 +1,118 @@
+---
+title: "SpectroFlo"
+description: "Designing intuitive and flexible software for complex flow cytometry workflows—balancing ease of use with powerful features for scientists."
+date: "2019-03-06"
+tags: ["Design", "UX"]
+image: "/portfolio-spectroflow-acquisition-desktop.png"
+---
+
+![Acquisition Desktop](/portfolio-spectroflow-acquisition-desktop.png "Acquisition Desktop")
+
+I was hired by [Cytek Biosciences](https://cytekbio.com) to design [SpectroFlo](https://cytekbio.com/pages/aurora#tab-software), a desktop application for the Cytek Aurora and Northern Lights flow cytometry platforms. SpectroFlo allows scientists to acquire and analyze data from a cytometer with an intuitive interface built from the ground up to balance ease of use with flexibility. My job was to design a product that empowered both beginner and veteran flow cytometrists to generate quality data for any application. That came with its challenges. In this article, I will demonstrate how I approach designing complex software for scientific instruments.
+
+## My Process
+
+1. **Clarify Requirements.** I worked with Cytek's staff to document and communicate project details to the rest of the company, building a consensus on vision. That consensus helped the project run smoothly.
+2. **Build Domain Expertise.** I studied [flow cytometry](https://en.wikipedia.org/wiki/Flow_cytometry) and competitor products such as [BD FACSDIVA](http://www.bdbiosciences.com/us/instruments/research/software/flow-cytometry-acquisition/bd-facsdiva-software/m/111112/overview). I learned about our UI technology ([Microsoft WPF](https://docs.microsoft.com/en-us/dotnet/framework/wpf/)) and hardware technology ([Aurora Cytometer](https://cytekbio.com/pages/aurora)).
+3. **Design with Stakeholders.** I worked alongside subject experts, our engineers, and our users.
+4. **Iterate Super Fast.** I quickly mocked up team members' and customers' ideas/change requests and hosted followup meetings with stakeholders. This allowed the team to review alternate ideas quickly and visually, which helped attain unanimous consensus on at least 1 new feature or product decision almost every day.
+
+## Design Feedback
+
+I guided our design meetings by writing feedback and action items on the whiteboard. I would then convert these action items into Jira tickets either for myself or for the engineers. Sometimes feedback already had an associated Jira ticket; in those cases, I would write the ticket ID on the note. I censored sensitive information from this photo.
+
+![Design Feedback](/portfolio-spectroflow-product-feedback.jpg "Design Feedback")
+
+## The Product
+
+In this section, I'll demo the final product and its features. All the screenshots were designed by me. Enjoy!
+
+### Overview
+
+![Aurora and SpectroFlo](/portfolio-spectroflow-overview.jpg "Aurora and SpectroFlo")
+
+#### Get Started Menu
+
+![Get Started](/portfolio-spectroflow-get-started.jpg "Get Started")
+
+#### Experiments
+
+The Acquisition UI provides the tools necessary to acquire data. We organize sets of data into what we call Experiments.
+
+![Experiment](/portfolio-spectroflow-experiment.jpg "Experiment")
+
+Completed experiments are accessed through the My Experiments option in the Acquisition Experiment menu. Experiments are organized by the date they were created.
+
+![My Experiment](/portfolio-spectroflow-my-experiments.jpg "My Experiment")
+
+I designed a hierarchical layout for users to organize their experiments into Groups and Tubes. Users can organize and save their experiments as templates.
+
+![Acquisition Experiment](/portfolio-spectroflow-acquisition-experiment-2.jpg "Acquisition Experiment")
+
+#### Worksheets
+
+Worksheets are used to visualize the data in the experiment. To select a worksheet, the user clicks Worksheet in the Acquisition menu.
+
+![Worksheet](/portfolio-spectroflow-worksheet.jpg "Worksheet")
+
+Users can have multiple worksheets open at a time using Tabs.
+
+![Worksheet Tabs](/portfolio-spectroflow-worksheet-tab.jpg "Worksheet Tabs")
+
+### Quality Control and Performance Tracking
+
+The Daily QC and Reference Control features are essential tools for ensuring instrument performance and data quality. Daily QC allows users to monitor instrument performance over time, while the Reference Control tab enables users to manage, generate, and benchmark reference controls to maintain consistency and reliability in their experiments.
+
+![Daily QC](/portfolio-spectroflow-daily-qc.jpg "Daily QC")
+
+![Reference Controls](/portfolio-spectroflow-reference-controls.jpg "Reference Controls")
+
+### Acquisition
+
+The Acquisition Control panel allows users to start, stop, pause, and record data acquisition.
+
+![Acquisition Control](/portfolio-spectroflow-acquisition-control.png "Acquisition Control")
+
+#### Acquisition Worksheet
+
+The worksheet allows the user to analyze their data.
+
+![Acquisition Worksheet](/portfolio-spectroflow-acquisition-worksheet.png "Acquisition Worksheet")
+
+A toolbar at the top of the worksheet area allows the user create plots, render statistics, create population hierarchies, and draw gates.
+
+![Worksheet Toolbar](/portfolio-spectroflow-worksheet-toolbar.png "Worksheet Toolbar")
+
+### Preferences
+
+Preferences allows users and admins to customize and optimize their workflows. For example, the Worksheet tab allows users to change the way elements are displayed in the worksheet.
+
+## Key Features
+
+SpectroFlo was designed with several core features that reflect the needs of modern laboratories:
+
+- **Portability:** Experiment and worksheet templates are portable within the SpectroFlo environment, making it easy to share templates with other users and transfer them across workstations for consistency in multi-site laboratories.
+
+- **User Management:** SpectroFlo provides tools for lab managers and administrators to create and manage user accounts and permissions. The Use Time tracking feature allows admins to monitor user sessions and system usage.
+
+- **Guided Experiment Workflow:** The interface guides users through creating experiments step-by-step, from choosing fluorochromes and adding labels to defining tubes, worksheets, and stopping criteria.
+
+## Material Design
+
+I created a design system that was based on Material Design. Here are some of the many reasons I did this:
+
+- It's a unified system that combines theory, resources, and tools for crafting digital experiences.
+- My job was to optimize for usability, and Material Design was the most usable design paradigm of its time, thanks to Google's UX research resources.
+- Material Design Icons allowed us to use existing open source materials so that we only had to design a few specific icons.
+- While doing research into our UI technology, Windows WPF, I found an [open source toolkit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit) that provided many Material Design UI components out of the box. I asked our engineers to look into it, and I got confirmation of its viability before committing to this design paradigm.
+- We wanted our users to subconsciously attribute a level of trust and security to our app, and Material Design was tightly associated with Google.
+
+### Custom Material Design Icons
+
+Here is a sample of the icons I made for special cases that weren't available in the open source Material Design library:
+
+![Custom Material Design Icons](/portfolio-spectroflow-custom-icons.png "Custom Material Design Icons")
+
+## Conclusion
+
+This article should provide you a solid idea as to the way I approach designing software. If you'd like to see more of my UI designs, check out my [Mobile App UI](/projects/mobile-ui) portfolio.

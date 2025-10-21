@@ -23,6 +23,7 @@ export interface ProjectMetadata {
   logo?: string;
   logoDark?: string;
   features?: ProjectFeature[];
+  featuredImage?: string;
 }
 
 export interface Project {
