@@ -57,7 +57,7 @@ export function ResumePDFDownload() {
       const nameWords = name.split(' ');
       let xPos = 0;
 
-      nameWords.forEach((word, wordIndex) => {
+      nameWords.forEach((word: string, wordIndex: number) => {
         // First letter at 24pt
         doc.setFontSize(24);
         doc.setFont('ComputerModern', 'normal');
