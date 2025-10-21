@@ -46,9 +46,9 @@ export const experiences: Experience[] = [
     duration: "Feb 2025 - Oct 2025",
     location: "San Francisco, California, United States",
     description: [
-      "Led product, operations, and technical direction as Co-Founder. Built core web application using Next.js, React, and modern full-stack technologies, delivering product experience across all platforms.",
-      "Architected and deployed sub-30 second deep research agentic workflows using parallel execution, enabling intelligent automation and autonomous decision-making capabilities at scale.",
-      "Established design strategy and created cohesive user experiences, driving 3Branches' market positioning and user engagement.",
+      "Led product, operations, and technical direction. Built core web application using Next.js, React, and modern full-stack technologies, delivering product experience across all platforms.",
+      "Architected and deployed agentic search that connects legal information from thousands of documents in under 60 seconds.",
+      "Established design strategy and created cohesive user experiences, driving 3Branches' user engagement.",
     ],
   },
   {
@@ -60,10 +60,9 @@ export const experiences: Experience[] = [
     location: "San Francisco, California",
     description: [
       "Founded and developed InfoPop, a consumer app featuring mixed reality and spatial awareness capabilities with innovative 3D scanner technology for capturing and augmenting physical spaces with contextual data, achieving 10M+ online impressions through viral content.",
-      "Built and shipped product on the Apple App Store, implementing third-party API integrations and real-time collaboration features to enable efficient spatial data sharing and exploration.",
-      "Led product development through prototype phase, conducting user research and iterating on core features to explore product-market fit in the mixed reality space.",
+      "Built and shipped product on the Apple App Store.",
+      "Led product development, conducting user research and iterating on core features to explore product-market fit in the mixed reality space.",
     ],
-    url: "https://apps.apple.com/us/app/infopop/id1530246692",
   },
   {
     company: "Foundation Labs",
@@ -85,9 +84,9 @@ export const experiences: Experience[] = [
     duration: "Apr 2017 - Apr 2019",
     location: "Menlo Park, CA",
     description: [
-      "Led product strategy and execution for a venture-backed social network that achieved significant market traction and recognition at the end of 2018, reaching Product Hunt featured status.",
+      "Led product strategy and execution for a venture-backed social network.",
       "Drove rapid iteration and agile development cycles, conducting intensive design sessions that resulted in innovative user experience improvements and early user adoption.",
-      "Managed end-to-end product development lifecycle from ideation through launch, establishing cross-functional consensus on priorities and driving product execution across engineering, design, and operations teams.",
+      "Managed end-to-end product development lifecycle from ideation through launch, establishing cross-functional consensus on priorities and driving product execution across engineering, design, and operations.",
     ],
     url: "https://www.producthunt.com/posts/october-2",
   },
@@ -100,9 +99,9 @@ export const experiences: Experience[] = [
     location: "Sacramento, California",
     description: [
       "Joined as first employee and built design function at Sacramento's leading software consultancy, establishing design-driven development practices and culture.",
-      "Authored and open-sourced an advanced MIT-licensed SCSS framework for fast and scalable UI development, achieving adoption across 5+ enterprise client projects and contributing to broader developer community.",
-      "Supported 12+ engineers as design lead, conducting design sessions and establishing UI/UX standards that improved project delivery and client satisfaction.",
-      "Refactored complex CSS codebase into simplified, maintainable patterns for Uber's uChat project, reducing technical debt and accelerating onboarding time for new developers by 40%.",
+      "Authored and open-sourced an advanced MIT-licensed SCSS framework for fast and scalable UI development, achieving adoption across 5+ enterprise client projects.",
+      "Supported 12+ engineers as design lead, establishing UI/UX standards that improved project delivery and client satisfaction.",
+      "Refactored legacy CSS codebase into simplified, maintainable patterns for Uber's uChat project, reducing technical debt and accelerating onboarding time for new developers by 40%.",
     ],
     url: "https://fullstacklabs.co",
   },
