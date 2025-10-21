@@ -9,12 +9,33 @@ export interface Experience {
   url?: string;
 }
 
+export interface Skill {
+  category: string;
+  description: string;
+}
+
 export const personalInfo = {
   name: "Kai Faust",
   email: "kaifaust@gmail.com",
   phone: "(707) 508-6371",
   location: "San Francisco, CA",
+  linkedin: "https://www.linkedin.com/in/kaifaust/",
 };
+
+export const skills: Skill[] = [
+  {
+    category: "AI Agents:",
+    description: "Prompt engineering, agentic search, orchestration, workflows",
+  },
+  {
+    category: "Software:",
+    description: "TypeScript, Python, Next.js, Docker, Google Cloud, AWS",
+  },
+  {
+    category: "Design:",
+    description: "UI, UX, Sketch, Figma, Illustrator",
+  },
+];
 
 export const experiences: Experience[] = [
   {
@@ -49,7 +70,7 @@ export const experiences: Experience[] = [
     title: "CEO",
     type: "Full-time",
     duration: "Apr 2019 - Mar 2021",
-    location: "San Francisco",
+    location: "Los Angeles, CA",
     description: [
       "Led Foundation Labs as an award-winning product development agency, establishing market reputation in performance, reliability, usability, and security-focused solutions.",
       "Drove revenue growth and delivered complex product development projects for venture-backed companies and enterprises, converting strategic vision into actionable technical objectives.",

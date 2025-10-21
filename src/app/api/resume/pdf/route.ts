@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { personalInfo, experiences } from '@/lib/resume-data';
+import { personalInfo, experiences, skills } from '@/lib/resume-data';
 import { readFile } from 'fs/promises';
 import path from 'path';
 
@@ -14,6 +14,7 @@ export async function GET(request: Request) {
       return NextResponse.json({
         personalInfo,
         experiences,
+        skills,
       });
     }
 

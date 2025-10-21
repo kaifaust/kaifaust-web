@@ -46,116 +46,208 @@ export function ResumePDFDownload() {
 
       const pageWidth = doc.internal.pageSize.getWidth();
       const pageHeight = doc.internal.pageSize.getHeight();
-      const margin = 12.7; // 0.5 inch
+      const margin = 24; // 50% more side margins
+      const verticalMargin = 18; // Reduced top/bottom margins
       const contentWidth = pageWidth - margin * 2;
 
-      let yPosition = margin;
+      let yPosition = verticalMargin;
 
-      // Header - Name
-      doc.setFontSize(20);
-      doc.setFont('ComputerModern', 'bold');
-      doc.text(data.personalInfo.name.toUpperCase(), pageWidth / 2, yPosition, {
-        align: 'center',
+      // Header - Name - Small caps style
+      const name = data.personalInfo.name.toUpperCase();
+      const nameWords = name.split(' ');
+      let xPos = 0;
+
+      nameWords.forEach((word, wordIndex) => {
+        // First letter at 24pt
+        doc.setFontSize(24);
+        doc.setFont('ComputerModern', 'normal');
+        doc.text(word[0], pageWidth / 2 + xPos - (nameWords.length > 1 ? 10 : 0), yPosition);
+
+        // Remaining letters at 14pt
+        doc.setFontSize(14);
+        const remainingLetters = word.substring(1);
+        const spacing = wordIndex === 0 ? 6.5 : 4.5; // More space after K, less after F
+        doc.text(remainingLetters, pageWidth / 2 + xPos - (nameWords.length > 1 ? 10 : 0) + spacing, yPosition);
+
+        xPos += doc.getStringUnitWidth(word) * 14 / 1000 + 14;
       });
-      yPosition += 6;
+
+      yPosition += 8;
 
       // Contact info
-      doc.setFontSize(8);
+      doc.setFontSize(9);
       doc.setFont('ComputerModern', 'normal');
-      const contactInfo = `${data.personalInfo.location} • ${data.personalInfo.email} • ${data.personalInfo.phone}`;
+      const contactInfo = `${data.personalInfo.location} • ${data.personalInfo.email} • ${data.personalInfo.phone} • linkedin.com/in/kaifaust`;
       doc.text(contactInfo, pageWidth / 2, yPosition, { align: 'center' });
       yPosition += 5;
 
-      // Horizontal line
-      doc.setDrawColor(0);
-      doc.setLineWidth(0.3);
-      doc.line(margin, yPosition, pageWidth - margin, yPosition);
-      yPosition += 4;
-
       // Skills section
-      doc.setFontSize(9);
-      doc.setFont('ComputerModern', 'bold');
-      doc.text('SKILLS', margin, yPosition);
-      yPosition += 3;
-
-      doc.setFontSize(8);
+      const skillsIndent = 8; // Indentation for skills content
+      doc.setFontSize(10);
       doc.setFont('ComputerModern', 'normal');
-      const skillsText = 'Efficient Computer for AI • Running spatial networks in tight spaces • Product Engineering, Product Management • Linux, Docker, Nodejs frameworks & directly sourced framework knowledge • Excellent coding from an architectural and support';
-      const skillsLines = doc.splitTextToSize(skillsText, contentWidth);
-      doc.text(skillsLines, margin, yPosition);
-      yPosition += skillsLines.length * 2.5 + 3;
+      // Small caps effect: larger first letter + smaller uppercase rest
+      doc.setFontSize(12);
+      doc.text('S', margin, yPosition);
+      doc.setFontSize(8);
+      doc.text('KILLS', margin + 2.5, yPosition);
+      yPosition += 2;
+
+      // Line under SKILLS label
+      doc.setDrawColor(0);
+      doc.setLineWidth(0.15);
+      doc.line(margin, yPosition, pageWidth - margin, yPosition);
+      yPosition += 4.5;
+
+      // Render skills in 2-column format (category | description)
+      doc.setFontSize(9);
+      doc.setFont('ComputerModern', 'normal');
+
+      const leftColumnWidth = 35; // Width for category column
+      const rightColumnWidth = contentWidth - skillsIndent - leftColumnWidth; // Width for description column
+      const columnGap = 0;
+
+      // Render each skill row
+      data.skills.forEach((skill: { category: string; description: string }) => {
+        // Category (left column) - normal
+        doc.setFont('ComputerModern', 'normal');
+        doc.setFontSize(9);
+        doc.text(skill.category, margin + skillsIndent, yPosition);
+
+        // Description (right column) - normal, with text wrapping
+        doc.setFont('ComputerModern', 'normal');
+        doc.setFontSize(9);
+        const descriptionLines = doc.splitTextToSize(
+          skill.description,
+          rightColumnWidth
+        );
+
+        // Draw description starting from right column
+        doc.text(
+          descriptionLines,
+          margin + skillsIndent + leftColumnWidth + columnGap,
+          yPosition
+        );
+
+        // Move down by the height of description (in case it wraps)
+        const rowHeight = Math.max(
+          4.2,
+          descriptionLines.length * 3 + 2
+        );
+        yPosition += rowHeight;
+      });
+
+      yPosition += 3;
 
       // Work Experience section
-      doc.setFontSize(9);
-      doc.setFont('ComputerModern', 'bold');
-      doc.text('WORK EXPERIENCE', margin, yPosition);
-      yPosition += 3;
+      doc.setFontSize(10);
+      doc.setFont('ComputerModern', 'normal');
+      // Small caps effect: larger first letter + smaller uppercase rest
+      doc.setFontSize(12);
+      doc.text('W', margin, yPosition);
+      doc.setFontSize(8);
+      doc.text('ORK ', margin + 3.9, yPosition);
+      doc.setFontSize(12);
+      doc.text('E', margin + 11, yPosition);
+      doc.setFontSize(8);
+      doc.text('XPERIENCE', margin + 13.8, yPosition);
+      yPosition += 2;
 
-      doc.setLineWidth(0.2);
+      // Line under WORK EXPERIENCE label
+      doc.setDrawColor(0);
+      doc.setLineWidth(0.15);
       doc.line(margin, yPosition, pageWidth - margin, yPosition);
-      yPosition += 3;
+      yPosition += 5;
 
       // Experiences
+      const experienceIndent = 8; // Indentation for work experience items
       data.experiences.forEach((exp: { company: string; duration: string; location?: string; title: string; description: string | string[] }) => {
-        if (yPosition > pageHeight - margin - 10) {
+        if (yPosition > pageHeight - verticalMargin - 10) {
           doc.addPage();
-          yPosition = margin;
+          yPosition = verticalMargin;
         }
 
-        // Company name and duration on same line
+        // Company name on left, Location (City, State) on right - INDENTED
         doc.setFont('ComputerModern', 'bold');
-        doc.setFontSize(9);
-        doc.text(exp.company, margin, yPosition);
+        doc.setFontSize(10);
+        doc.text(exp.company, margin + experienceIndent, yPosition);
 
-        // Duration on right side
-        doc.setFont('ComputerModern', 'normal');
-        doc.setFontSize(8);
-        doc.text(exp.duration, pageWidth - margin, yPosition, { align: 'right' });
-        yPosition += 3.5;
-
-        // Location
+        // Format and display location on right side
         if (exp.location) {
           doc.setFont('ComputerModern', 'normal');
-          doc.setFontSize(8);
-          doc.text(exp.location, margin, yPosition);
-          yPosition += 3;
-        }
+          doc.setFontSize(9);
+          // Parse location to extract city and state (assuming format like "San Francisco, California")
+          const locationParts = exp.location.split(',').map(part => part.trim());
+          let formattedLocation = exp.location;
 
-        // Title (italic)
+          // Try to format as "City, State" - handle common state names
+          if (locationParts.length >= 2) {
+            const city = locationParts[0];
+            const state = locationParts[1];
+            // Common state abbreviations
+            const stateAbbreviations: { [key: string]: string } = {
+              'california': 'CA', 'colorado': 'CO', 'new york': 'NY', 'texas': 'TX',
+              'florida': 'FL', 'washington': 'WA', 'oregon': 'OR', 'massachusetts': 'MA',
+              'pennsylvania': 'PA', 'illinois': 'IL', 'michigan': 'MI', 'arizona': 'AZ',
+              'georgia': 'GA', 'north carolina': 'NC', 'ohio': 'OH', 'virginia': 'VA'
+            };
+            const stateAbbr = stateAbbreviations[state.toLowerCase()] || state;
+            formattedLocation = `${city}, ${stateAbbr}`;
+          }
+          doc.text(formattedLocation, pageWidth - margin, yPosition, { align: 'right' });
+        }
+        yPosition += 4;
+
+        // Title (italic) and Duration on right side - INDENTED
         doc.setFont('ComputerModern', 'italic');
-        doc.setFontSize(8.5);
-        doc.text(exp.title, margin, yPosition);
-        yPosition += 3;
+        doc.setFontSize(9.5);
+        doc.text(exp.title, margin + experienceIndent, yPosition);
+
+        // Duration on right side (same line as title)
+        doc.setFont('ComputerModern', 'normal');
+        doc.setFontSize(9);
+        doc.text(exp.duration, pageWidth - margin, yPosition, { align: 'right' });
+        yPosition += 4;
 
         // Description (bullet points)
         doc.setFont('ComputerModern', 'normal');
-        doc.setFontSize(8);
+        doc.setFontSize(9);
         const descriptions = Array.isArray(exp.description) ? exp.description : [exp.description];
 
-        descriptions.forEach((desc: string) => {
-          if (yPosition > pageHeight - margin - 5) {
+        descriptions.forEach((desc: string, index: number) => {
+          if (yPosition > pageHeight - verticalMargin - 5) {
             doc.addPage();
-            yPosition = margin;
+            yPosition = verticalMargin;
           }
-          const bulletWidth = contentWidth - 4;
+
+          // Add spacing above the first bullet item
+          if (index === 0) {
+            yPosition += 1;
+          }
+
+          const bulletWidth = contentWidth - experienceIndent - 6;
           const splitText = doc.splitTextToSize(desc, bulletWidth);
 
-          // First line with bullet
-          doc.text('• ' + splitText[0], margin + 2, yPosition);
-          yPosition += 2.8;
+          // First line with bullet (with spacing after bullet) - INDENTED
+          doc.text('•  ' + splitText[0], margin + experienceIndent + 4, yPosition);
+          yPosition += 4.2;
 
           // Subsequent lines (indented)
           for (let i = 1; i < splitText.length; i++) {
-            if (yPosition > pageHeight - margin - 5) {
+            if (yPosition > pageHeight - verticalMargin - 5) {
               doc.addPage();
-              yPosition = margin;
+              yPosition = verticalMargin;
             }
-            doc.text(splitText[i], margin + 4, yPosition);
-            yPosition += 2.8;
+            doc.text(splitText[i], margin + experienceIndent + 7.5, yPosition);
+            yPosition += 4.2;
+          }
+
+          // Add spacing between bullet items
+          if (index < descriptions.length - 1) {
+            yPosition += 1;
           }
         });
 
-        yPosition += 2;
+        yPosition += 3;
       });
 
       // Save the PDF
