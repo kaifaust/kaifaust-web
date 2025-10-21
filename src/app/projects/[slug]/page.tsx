@@ -137,7 +137,7 @@ export default async function ProjectPage({
       )}
 
       <div className="p-8 max-w-4xl mx-auto">
-        <article className="prose prose-lg max-w-none dark:prose-invert">
+        <article className="prose prose-lg max-w-none dark:prose-invert prose-img:max-h-[calc(100vh-2rem)] prose-img:w-auto prose-img:object-contain prose-video:max-h-[calc(100vh-2rem)] prose-video:w-auto">
           <div className="border-t border-gray-200 dark:border-gray-800 pt-8">
             <MDXRemote
               source={project.content}
