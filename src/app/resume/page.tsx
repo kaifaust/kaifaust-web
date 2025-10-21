@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { experiences } from "@/lib/resume-data";
+import { experiences, skills } from "@/lib/resume-data";
 import { ResumePDFDownload } from "@/components/ResumePDFDownload";
 
 export const metadata: Metadata = {
@@ -24,8 +24,34 @@ export default function Resume() {
           <ResumePDFDownload />
         </div>
 
-        {/* Experience Section */}
-        <div className="space-y-8">
+        {/* Skills Section */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            Skills
+          </h2>
+          <div className="space-y-6">
+            {skills.map((skill, index) => (
+              <div
+                key={index}
+                className="border-l-2 border-gray-200 dark:border-gray-800 pl-6"
+              >
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                  {skill.category}
+                </h3>
+                <p className="text-gray-700 dark:text-gray-300">
+                  {skill.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Work Experience Section */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            Work Experience
+          </h2>
+          <div className="space-y-8">
           {experiences.map((exp, index) => (
             <div
               key={index}
@@ -68,6 +94,7 @@ export default function Resume() {
               </div>
             </div>
           ))}
+          </div>
         </div>
       </div>
     </div>
