@@ -7,6 +7,7 @@ import SiteHeader from "./SiteHeader";
 
 const navigationItems = [
   { name: "Case Studies", href: "/" },
+  { name: "Resume", href: "/resume" },
   { name: "Contact", href: "/contact" },
 ];
 
