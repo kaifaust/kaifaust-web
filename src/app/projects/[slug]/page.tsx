@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getAllProjects, getProjectBySlug } from "@/lib/projects";
 import type { Metadata } from "next";
@@ -74,17 +75,21 @@ export default async function ProjectPage({
         <article className="max-w-none dark:prose-invert">
           <div className="my-8">
             {project.metadata.logo ? (
-              <div className="h-10 mb-4">
-                <img
+              <div className="h-16 mb-4">
+                <Image
                   src={project.metadata.logo}
                   alt={project.metadata.title}
-                  className="h-10 dark:hidden"
+                  width={200}
+                  height={64}
+                  className="h-16 dark:hidden object-contain"
                 />
                 {project.metadata.logoDark && (
-                  <img
+                  <Image
                     src={project.metadata.logoDark}
                     alt={project.metadata.title}
-                    className="h-10 hidden dark:block"
+                    width={200}
+                    height={64}
+                    className="h-16 hidden dark:block object-contain"
                   />
                 )}
               </div>

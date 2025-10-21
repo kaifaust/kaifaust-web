@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import ProjectFeatures from "./ProjectFeatures";
 import type { Project } from "@/lib/projects";
 
@@ -15,17 +16,21 @@ export default function FeaturedProjectCard({ project }: FeaturedProjectCardProp
         <div className="border border-gray-200 dark:border-gray-800 rounded-lg p-8">
           <div className="text-center">
             {project.metadata.logo ? (
-              <div className="h-8 mx-auto mb-4">
-                <img
+              <div className="h-16 mx-auto mb-4">
+                <Image
                   src={project.metadata.logo}
                   alt={project.metadata.title}
-                  className="h-8 mx-auto dark:hidden"
+                  width={200}
+                  height={64}
+                  className="h-16 mx-auto dark:hidden object-contain"
                 />
                 {project.metadata.logoDark && (
-                  <img
+                  <Image
                     src={project.metadata.logoDark}
                     alt={project.metadata.title}
-                    className="h-8 mx-auto hidden dark:block"
+                    width={200}
+                    height={64}
+                    className="h-16 mx-auto hidden dark:block object-contain"
                   />
                 )}
               </div>
@@ -67,9 +72,11 @@ export default function FeaturedProjectCard({ project }: FeaturedProjectCardProp
             </div>
             {project.metadata.image && (
               <div className="mt-8 rounded-xl overflow-hidden shadow-lg">
-                <img
+                <Image
                   src={project.metadata.image}
                   alt={project.metadata.title}
+                  width={800}
+                  height={400}
                   className="w-full h-auto"
                 />
               </div>

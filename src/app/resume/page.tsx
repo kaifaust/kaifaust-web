@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { experiences } from "@/lib/resume-data";
-import { Download } from "lucide-react";
+import { ResumePDFDownload } from "@/components/ResumePDFDownload";
 
 export const metadata: Metadata = {
   title: "Resume",
@@ -21,14 +21,7 @@ export default function Resume() {
               Professional experience and background
             </p>
           </div>
-          <a
-            href="/resume.pdf"
-            download="Kai-Faust-Resume.pdf"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-900 dark:text-white rounded-lg transition-colors whitespace-nowrap"
-          >
-            <Download size={18} />
-            <span>Download PDF</span>
-          </a>
+          <ResumePDFDownload />
         </div>
 
         {/* Experience Section */}
