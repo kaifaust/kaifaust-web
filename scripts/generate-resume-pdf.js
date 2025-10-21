@@ -1,16 +1,17 @@
 const fs = require('fs');
 const path = require('path');
-const { jsPDF } = require('jspdf');
+const PDFDocument = require('pdfkit');
 
 // Resume data
 const resumeData = {
   name: "Kai Faust",
-  title: "CEO, Product Developer & Engineer",
+  email: "kaifaust@gmail.com",
+  phone: "(707) 508-6371",
+  location: "San Francisco, CA",
   experiences: [
     {
       company: "3Branches",
       title: "Co-Founder, COO, CPO",
-      type: "Full-time",
       duration: "Feb 2025 - Oct 2025",
       location: "San Francisco, California, United States",
       description: [
@@ -22,7 +23,6 @@ const resumeData = {
     {
       company: "InfoPop",
       title: "CEO",
-      type: "Full-time",
       duration: "Jul 2020 - Jul 2025",
       location: "San Francisco, California",
       description: [
@@ -34,7 +34,6 @@ const resumeData = {
     {
       company: "Foundation Labs",
       title: "CEO",
-      type: "Full-time",
       duration: "Apr 2019 - Mar 2021",
       location: "San Francisco",
       description: [
@@ -46,7 +45,6 @@ const resumeData = {
     {
       company: "October",
       title: "Chief Product Officer",
-      type: "Full-time",
       duration: "Apr 2017 - Apr 2019",
       location: "Menlo Park, CA",
       description: [
@@ -58,7 +56,6 @@ const resumeData = {
     {
       company: "FullStack Labs",
       title: "Head of Design",
-      type: "Full-time",
       duration: "Nov 2015 - Mar 2017",
       location: "Sacramento, California",
       description: [
@@ -72,109 +69,75 @@ const resumeData = {
 };
 
 function generateResumePDF() {
-  const doc = new jsPDF({
-    orientation: 'portrait',
-    unit: 'mm',
-    format: 'a4',
-  });
-
-  const pageWidth = doc.internal.pageSize.getWidth();
-  const pageHeight = doc.internal.pageSize.getHeight();
-  const margin = 15;
-  const contentWidth = pageWidth - margin * 2;
-
-  let yPosition = margin;
-
-  // Set up fonts
-  doc.setFont('helvetica', 'normal');
-
-  // Header with name
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(24);
-  doc.text(resumeData.name, margin, yPosition);
-  yPosition += 10;
-
-  doc.setFont('helvetica', 'normal');
-  doc.setFontSize(11);
-  doc.setTextColor(80, 80, 80);
-  doc.text(resumeData.title, margin, yPosition);
-  yPosition += 8;
-
-  // Add some spacing
-  yPosition += 2;
-
-  // Experience section
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(12);
-  doc.setTextColor(0, 0, 0);
-  doc.text('Professional Experience', margin, yPosition);
-  yPosition += 6;
-
-  // Add experiences
-  resumeData.experiences.forEach((exp, index) => {
-    // Check if we need a new page
-    if (yPosition > pageHeight - 30) {
-      doc.addPage();
-      yPosition = margin;
+  try {
+    const outputDir = path.join(process.cwd(), 'public');
+    if (!fs.existsSync(outputDir)) {
+      fs.mkdirSync(outputDir, { recursive: true });
     }
 
-    // Company and Title
-    doc.setFont('helvetica', 'bold');
-    doc.setFontSize(11);
-    doc.setTextColor(0, 0, 0);
-    doc.text(exp.title, margin, yPosition);
-    yPosition += 5;
-
-    // Company info
-    doc.setFont('helvetica', 'normal');
-    doc.setFontSize(10);
-    doc.setTextColor(80, 80, 80);
-    const companyText = `${exp.company} · ${exp.type}`;
-    doc.text(companyText, margin, yPosition);
-    yPosition += 4;
-
-    // Duration and Location
-    doc.setFontSize(9);
-    doc.text(exp.duration, margin, yPosition);
-    yPosition += 3;
-    if (exp.location) {
-      doc.text(exp.location, margin, yPosition);
-      yPosition += 3;
-    }
-
-    // Description
-    doc.setFont('helvetica', 'normal');
-    doc.setFontSize(10);
-    doc.setTextColor(40, 40, 40);
-
-    const descriptions = Array.isArray(exp.description) ? exp.description : [exp.description];
-    descriptions.forEach((desc) => {
-      const lines = doc.splitTextToSize(desc, contentWidth - 5);
-      lines.forEach((line) => {
-        if (yPosition > pageHeight - 20) {
-          doc.addPage();
-          yPosition = margin;
-        }
-        doc.text(line, margin + 3, yPosition);
-        yPosition += 3.5;
-      });
-      yPosition += 1;
+    const outputPath = path.join(outputDir, 'resume.pdf');
+    const doc = new PDFDocument({
+      size: 'Letter',
+      margin: 50,
     });
 
-    yPosition += 3;
-  });
+    doc.pipe(fs.createWriteStream(outputPath));
 
-  // Save the PDF
-  const outputDir = path.join(process.cwd(), 'public');
-  if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir, { recursive: true });
+    const pageWidth = doc.page.width - 100; // Subtract larger margins (50 on each side)
+
+    // Header - Name with serif font and larger size
+    doc.fontSize(22).font('Times-Roman').text(resumeData.name.toUpperCase(), { align: 'center' });
+    doc.moveDown(0.25);
+    doc.fontSize(10).font('Times-Roman').text(`${resumeData.location} • ${resumeData.email} • ${resumeData.phone}`, { align: 'center' });
+    doc.moveDown(0.5);
+
+    // Section title with serif font (slightly smaller)
+    doc.fontSize(10).font('Times-Bold').text('WORK EXPERIENCE');
+    doc.moveDown(0.2);
+
+    // Section line below title
+    doc.moveTo(50, doc.y).lineTo(doc.page.width - 50, doc.y).stroke();
+    doc.moveDown(0.4);
+
+    // Experiences
+    resumeData.experiences.forEach((exp, idx) => {
+      // Company and location on same line (left/right aligned)
+      const currentY = doc.y;
+      doc.fontSize(10).font('Times-Bold').text(exp.company, 50, currentY, { width: pageWidth - 80, continued: false });
+      doc.fontSize(9).font('Times-Roman').text(exp.location, 50, currentY, { width: pageWidth, align: 'right' });
+      doc.moveDown(0.4);
+
+      // Title (italicized) and duration on same line
+      const titleY = doc.y;
+      doc.fontSize(9).font('Times-Italic').text(exp.title, 50, titleY, { width: pageWidth - 80, continued: false });
+      doc.fontSize(9).font('Times-Roman').text(exp.duration, 50, titleY, { width: pageWidth, align: 'right' });
+      doc.moveDown(0.4);
+
+      // Bullet points
+      exp.description.forEach((bullet) => {
+        const bulletY = doc.y;
+        doc.fontSize(9).font('Times-Roman').text('•', 60, bulletY);
+        doc.fontSize(9).font('Times-Roman').text(bullet, 72, bulletY, { width: pageWidth - 32, align: 'left', lineGap: 2 });
+        doc.moveDown(0.35);
+      });
+
+      doc.moveDown(0.3);
+
+      // Page break if needed
+      if (idx < resumeData.experiences.length - 1 && doc.y > doc.page.height - 100) {
+        doc.addPage();
+        doc.moveTo(50, doc.y).lineTo(doc.page.width - 50, doc.y).stroke();
+        doc.moveDown(0.4);
+      }
+    });
+
+    doc.end();
+
+    console.log(`Resume PDF generated successfully at ${outputPath}`);
+  } catch (error) {
+    console.error('Error generating resume PDF:', error);
+    process.exit(1);
   }
-
-  const outputPath = path.join(outputDir, 'resume.pdf');
-  const pdfBuffer = Buffer.from(doc.output('arraybuffer'));
-  fs.writeFileSync(outputPath, pdfBuffer);
-
-  console.log(`Resume PDF generated successfully at ${outputPath}`);
 }
 
 generateResumePDF();
