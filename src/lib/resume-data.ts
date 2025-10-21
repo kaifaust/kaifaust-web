@@ -44,7 +44,7 @@ export const experiences: Experience[] = [
     title: "Co-Founder, COO, CPO",
     type: "Full-time",
     duration: "Feb 2025 - Oct 2025",
-    location: "San Francisco, California, United States",
+    location: "San Francisco, CA",
     description: [
       "Led product, operations, and technical direction. Built core web application using Next.js, React, and modern full-stack technologies, delivering product experience across all platforms.",
       "Architected and deployed agentic search that connects legal information from thousands of documents in under 60 seconds.",
@@ -57,7 +57,7 @@ export const experiences: Experience[] = [
     title: "CEO",
     type: "Full-time",
     duration: "Jul 2020 - Jul 2025",
-    location: "San Francisco, California",
+    location: "San Francisco, CA",
     description: [
       "Founded and developed InfoPop, a consumer app featuring mixed reality and spatial awareness capabilities with innovative 3D scanner technology for capturing and augmenting physical spaces with contextual data, achieving 10M+ online impressions through viral content.",
       "Built and shipped product on the Apple App Store.",
@@ -96,7 +96,7 @@ export const experiences: Experience[] = [
     title: "Head of Design",
     type: "Full-time",
     duration: "Nov 2015 - Mar 2017",
-    location: "Sacramento, California",
+    location: "Sacramento, CA",
     description: [
       "Joined as first employee and built design function at Sacramento's leading software consultancy, establishing design-driven development practices and culture.",
       "Authored and open-sourced an advanced MIT-licensed SCSS framework for fast and scalable UI development, achieving adoption across 5+ enterprise client projects.",

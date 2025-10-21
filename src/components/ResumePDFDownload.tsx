@@ -171,29 +171,11 @@ export function ResumePDFDownload() {
         doc.setFontSize(10);
         doc.text(exp.company, margin + experienceIndent, yPosition);
 
-        // Format and display location on right side
+        // Display location on right side
         if (exp.location) {
           doc.setFont('ComputerModern', 'normal');
           doc.setFontSize(9);
-          // Parse location to extract city and state (assuming format like "San Francisco, California")
-          const locationParts = exp.location.split(',').map(part => part.trim());
-          let formattedLocation = exp.location;
-
-          // Try to format as "City, State" - handle common state names
-          if (locationParts.length >= 2) {
-            const city = locationParts[0];
-            const state = locationParts[1];
-            // Common state abbreviations
-            const stateAbbreviations: { [key: string]: string } = {
-              'california': 'CA', 'colorado': 'CO', 'new york': 'NY', 'texas': 'TX',
-              'florida': 'FL', 'washington': 'WA', 'oregon': 'OR', 'massachusetts': 'MA',
-              'pennsylvania': 'PA', 'illinois': 'IL', 'michigan': 'MI', 'arizona': 'AZ',
-              'georgia': 'GA', 'north carolina': 'NC', 'ohio': 'OH', 'virginia': 'VA'
-            };
-            const stateAbbr = stateAbbreviations[state.toLowerCase()] || state;
-            formattedLocation = `${city}, ${stateAbbr}`;
-          }
-          doc.text(formattedLocation, pageWidth - margin, yPosition, { align: 'right' });
+          doc.text(exp.location, pageWidth - margin, yPosition, { align: 'right' });
         }
         yPosition += 4;
 
