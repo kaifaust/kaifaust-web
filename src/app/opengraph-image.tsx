@@ -27,7 +27,7 @@ export default async function Image() {
           Kai Faust
         </div>
         <div style={{ fontSize: 32, color: '#94a3b8' }}>
-          Developer building web applications
+          Engineering, design, AI
         </div>
       </div>
     ),

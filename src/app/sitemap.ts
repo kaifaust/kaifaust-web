@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const projects = getAllProjects()
 
   const projectUrls = projects.map((project) => ({
-    url: `https://kaifaust.com/projects/${project.slug}`,
+    url: `https://www.kaifaust.com/projects/${project.slug}`,
     lastModified: new Date(project.metadata.date),
     changeFrequency: 'monthly' as const,
     priority: project.metadata.featured ? 0.9 : 0.7,
@@ -13,13 +13,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      url: 'https://kaifaust.com',
+      url: 'https://www.kaifaust.com',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
-      url: 'https://kaifaust.com/projects',
+      url: 'https://www.kaifaust.com/projects',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,

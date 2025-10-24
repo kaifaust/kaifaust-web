@@ -17,27 +17,27 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kaifaust.com"),
+  metadataBase: new URL("https://www.kaifaust.com"),
   title: {
     default: "Kai Faust - Portfolio",
     template: "%s | Kai Faust",
   },
-  description: "Developer building web applications. Portfolio of projects by Kai Faust, including 3branches.org and more.",
+  description: "Engineering, design, AI.",
   keywords: ["Kai Faust", "Developer", "Portfolio", "Web Development", "Next.js", "React", "TypeScript"],
   authors: [{ name: "Kai Faust" }],
   creator: "Kai Faust",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://kaifaust.com",
+    url: "https://www.kaifaust.com",
     title: "Kai Faust - Portfolio",
-    description: "Developer building web applications. Portfolio of projects by Kai Faust.",
+    description: "Engineering, design, AI.",
     siteName: "Kai Faust Portfolio",
   },
   twitter: {
     card: "summary_large_image",
     title: "Kai Faust - Portfolio",
-    description: "Developer building web applications. Portfolio of projects by Kai Faust.",
+    description: "Engineering, design, AI.",
   },
   robots: {
     index: true,

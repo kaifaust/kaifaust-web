@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://kaifaust.com/sitemap.xml',
+    sitemap: 'https://www.kaifaust.com/sitemap.xml',
   }
 }

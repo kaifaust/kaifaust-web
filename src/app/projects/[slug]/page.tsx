@@ -38,7 +38,7 @@ export async function generateMetadata({
       title: project.metadata.title,
       description: project.metadata.description,
       type: "article",
-      url: `https://kaifaust.com/projects/${slug}`,
+      url: `https://www.kaifaust.com/projects/${slug}`,
       images: [
         {
           url: ogImage,
