@@ -100,3 +100,27 @@ export function getProjectSlugs(): string[] {
     .filter((fileName) => fileName.endsWith(".mdx"))
     .map((fileName) => fileName.replace(/\.mdx$/, ""));
 }
+
+export function getAllUniqueTags(): string[] {
+  const projects = getAllProjects();
+  const tagsSet = new Set<string>();
+
+  projects.forEach((project) => {
+    project.metadata.tags.forEach((tag) => {
+      tagsSet.add(tag);
+    });
+  });
+
+  return Array.from(tagsSet).sort();
+}
+
+export function filterProjectsByTags(projects: Project[], selectedTags: string[]): Project[] {
+  if (selectedTags.length === 0) {
+    return projects;
+  }
+
+  return projects.filter((project) => {
+    // Project must have at least one of the selected tags
+    return selectedTags.some((tag) => project.metadata.tags.includes(tag));
+  });
+}

@@ -1,6 +1,5 @@
-import { getAllProjects } from "@/lib/projects";
-import MasonryGrid from "@/components/MasonryGrid";
-import ProjectCard from "@/components/ProjectCard";
+import { getAllProjects, getAllUniqueTags } from "@/lib/projects";
+import ProjectsClient from "@/components/ProjectsClient";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -20,21 +19,20 @@ export const metadata: Metadata = {
 
 export default function Home() {
   const allProjects = getAllProjects();
+  const allTags = getAllUniqueTags();
 
   return (
     <div className="min-h-screen">
-      <header className="text-center md:pt-24 pb-16 md:pt-32 lg:pt-40 px-8">
+      <header className="text-center md:pt-24 pb-8 md:pb-16 md:pt-32 lg:pt-40 px-8">
         <h1 className="text-3xl md:text-4xl font-semibold mb-4">Case Studies</h1>
         <p className="text-md md:text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
           I blend craft and business acumen to build exceptional products.
         </p>
       </header>
 
-      <MasonryGrid>
-        {allProjects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
-        ))}
-      </MasonryGrid>
+      <div className="px-8 max-w-7xl mx-auto">
+        <ProjectsClient projects={allProjects} tags={allTags} />
+      </div>
     </div>
   );
 }
