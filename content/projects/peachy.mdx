@@ -1,0 +1,72 @@
+---
+title: "Peachy"
+description: "Where friends make plans. A social app I founded for the chats you already have, the plans that come out of them, and posts from people you actually know."
+date: "2026-11-16"
+tags: ["Engineering", "Design", "AI", "Swift", "Next.js"]
+featured: true
+url: "https://pchy.app"
+logo: "/peachy-logo.svg"
+logoDark: "/peachy-logo-dark.svg"
+image: "/peachy-events.webp"
+features:
+  - icon: "🎉"
+    title: "Let's Party"
+    description: "Send invites in one click. A plan gets its own page and cover, and everyone answers Going, Maybe or Can't go in one tap."
+    image: "/peachy-events.webp"
+  - icon: "🔒"
+    title: "Speak Freely"
+    description: "Truly private chats and calls. Every DM and private group chat is end-to-end encrypted from the first message, with nothing to turn on."
+    image: "/peachy-messages.webp"
+  - icon: "🧵"
+    title: "Adaptive Threads"
+    description: "Chats that feel simple at any size. A community is a handful of group chats and the events that come out of them, in one place."
+    image: "/peachy-threads.webp"
+  - icon: "🔔"
+    title: "Smart Notifications"
+    description: "Mute busy group chats without FOMO. Peachy AI lets through only what's time-sensitive, or only what matches a sentence you write."
+    image: "/peachy-notifications.webp"
+  - icon: "👋"
+    title: "Friends First"
+    description: "Your Feed is for your friends first. Nothing is ranked to keep you scrolling: you see what people posted, newest first, and then it ends."
+    image: "/peachy-feed.webp"
+---
+
+## Overview
+
+Peachy is my current company. I'm the founder, and I work across product, design and engineering.
+
+The idea is simple: group chats are where plans start, and they are also where plans get lost. Peachy puts the chat, the invite and the guest list in one app, so "Dumplings Thursday?" becomes a plan without leaving the conversation.
+
+Peachy runs on iPhone, iPad, Mac, Android and the web.
+
+![An event page on iPhone](/peachy-events-iphone.webp "An event page on iPhone")
+
+## What I Built
+
+### Plans that come out of chats
+
+An event has its own page, cover and guest list, and it can be shared with a link. Find a time shows when people are free, using only busy times from calendars on each person's own device. Peachy never writes to anyone's calendar.
+
+### Private by default
+
+Every DM and private group chat is end-to-end encrypted with MLS (RFC 9420), the IETF standard for group messaging. There is no setting to turn on, and no unencrypted mode to fall back to. The server holds ciphertext it cannot read.
+
+![An encrypted chat on iPhone](/peachy-messages-iphone.webp "An encrypted chat on iPhone")
+
+### AI that can't read over your shoulder
+
+Peachy AI does two things, and both are off until you turn them on: it decides which messages in a busy chat are worth a notification, and it filters your Feed by a paragraph you write. It runs open-weight models inside a hardware-attested enclave that nobody, including us, can see into.
+
+### A Feed that ends
+
+Posts go to your friends, your mutuals or one of your communities. Nothing is ranked for engagement. You see what people posted, newest first, and then you're done.
+
+## Engineering
+
+- **One schema, four clients.** The API is defined once in protobuf and generates typed clients for the web (Next.js), iPhone, iPad and Mac (SwiftUI), and Android (Jetpack Compose).
+- **One encryption core.** The MLS engine is written once in Rust and compiled for every platform, so all four clients do the same protocol work and are tested against the same fixtures.
+- **Screenshots are photographs.** The marketing and App Store images, including the ones on this page, are taken by driving the real apps, so a broken screen can't keep being advertised.
+
+## Design
+
+I designed the brand and the product. The mark is a speech bubble whose inner curve draws a peach, built from two circles and one 45° line. The apps share one design system across every platform.

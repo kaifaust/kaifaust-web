@@ -39,6 +39,20 @@ export const skills: Skill[] = [
 
 export const experiences: Experience[] = [
   {
+    company: "Peachy",
+    logo: "/peachy-logo.svg",
+    title: "Founder",
+    type: "Full-time",
+    duration: "Jul 2026 - Present",
+    location: "San Francisco, CA",
+    description: [
+      "Founded Peachy, a social app where friends make plans: group chats, events, and a friends-first feed, shipped on iPhone, iPad, Mac, Android, and the web.",
+      "Built end-to-end encrypted messaging on MLS (RFC 9420), with one Rust encryption core shared by every client.",
+      "Designed private AI features that run inside hardware-attested enclaves, plus the brand and a design system shared across all platforms.",
+    ],
+    url: "https://pchy.app",
+  },
+  {
     company: "3Branches",
     logo: "/3branches-logo.svg",
     title: "Co-Founder, COO, CPO",
