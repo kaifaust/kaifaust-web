@@ -37,7 +37,7 @@ export default function ProjectFeatures({ features }: ProjectFeaturesProps) {
                   alt={feature.title}
                   width={600}
                   height={400}
-                  className="w-full h-full object-contain dark:hidden"
+                  className={`w-full h-full object-contain ${feature.imageDark ? "dark:hidden" : ""}`}
                 />
                 {feature.imageDark && (
                   <Image
@@ -87,7 +87,7 @@ export default function ProjectFeatures({ features }: ProjectFeaturesProps) {
                         alt={feature.title}
                         width={500}
                         height={350}
-                        className="w-full h-full object-contain dark:hidden"
+                        className={`w-full h-full object-contain ${feature.imageDark ? "dark:hidden" : ""}`}
                       />
                       {feature.imageDark && (
                         <Image
